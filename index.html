@@ -464,7 +464,15 @@ function urunGorseli(u){const a=URUN_GORSELLERI[gorselAnahtar(u)];if(!a)return g
 function gorselSecenek(u){return [['auto','Otomatik'],...Object.entries(URUN_GORSELLERI).map(([k,v])=>[k,v.label]),['none','Emoji kullan']].map(([k,v])=>`<option value="${k}" ${(u.gorsel||'auto')===k?'selected':''}>${v}</option>`).join('');}
 function gorselDegistir(id,v){if(!['auto','none',...Object.keys(URUN_GORSELLERI)].includes(v))return;const u=urunler.find(x=>x.id===id);if(u){u.gorsel=v;kaydet();ciz();}}
 
-const FIREBASE_CONFIG={apiKey:"AIzaSyC_ouLJuL1sOElzqPG7bYnf-WN1qDnnyF0",authDomain:"malzemestok-a659c.firebaseapp.com",databaseURL:"https://malzemestok-a659c-default-rtdb.firebaseio.com",projectId:"malzemestok-a659c",storageBucket:"malzemestok-a659c.firebasestorage.app",messagingSenderId:"172870854641",appId:"1:172870854641:web:1a6177878080457f830650"};
+const firebaseConfig = {
+  apiKey: "AIzaSyC_ouLJuL1sOElzqPG7bYnf-WN1qDnnyF0",
+  authDomain: "malzemestok-a659c.firebaseapp.com",
+  databaseURL: "https://malzemestok-a659c-default-rtdb.firebaseio.com",
+  projectId: "malzemestok-a659c",
+  storageBucket: "malzemestok-a659c.firebasestorage.app",
+  messagingSenderId: "172870854641",
+  appId: "1:172870854641:web:1a6177878080457f830650"
+};
 
 const TG_DEFAULT='8975905591:AAG3lVJN9OjLU35ZTYNkrDFS-w3TAyXQDIQ';
 let tgToken=localStorage.getItem('kp_tg_token')||TG_DEFAULT;
